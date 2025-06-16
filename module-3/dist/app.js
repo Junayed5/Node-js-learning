@@ -7,9 +7,9 @@ const express_1 = __importDefault(require("express"));
 const todos_routes_1 = require("./app/todos.routes");
 const app = (0, express_1.default)();
 // For routing
+app.use(express_1.default.json());
 app.use('/todos', todos_routes_1.todosRoute);
 // todosRoute act like a [app]
-app.use(express_1.default.json());
 app.get("/", (req, res) => {
     res.send("welcome to todo app");
 });

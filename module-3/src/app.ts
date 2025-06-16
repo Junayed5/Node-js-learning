@@ -6,10 +6,10 @@ import { todosRoute } from "./app/todos.routes";
 const app: Application = express();
 
 // For routing
+app.use(express.json())
 app.use('/todos', todosRoute);
 
 // todosRoute act like a [app]
-app.use(express.json())
 
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to todo app");
