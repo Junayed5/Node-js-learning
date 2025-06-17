@@ -10,7 +10,12 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use('/todos', todos_routes_1.todosRoute);
 // todosRoute act like a [app]
-app.get("/", (req, res) => {
+app.get("/", (req, res, next) => {
+    console.log("inside middleware");
+    next();
+}, (req, res) => {
     res.send("welcome to todo app");
+});
+app.use((error, req, res, next) => {
 });
 exports.default = app;
